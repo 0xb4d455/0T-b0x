@@ -13,7 +13,7 @@ var id = "ot-box";
 var otWarning = null;
 var commentBoxes = [];
 var commentBoxesIndices = 0;
-var searchString = ["OT", "ot", "Offtopic", "OFFTOPIC"];
+var searchString = ["ot", "offtopic"];
 var foundString = "OT in den Kommentaren!";
 
 //some good styling here
@@ -78,7 +78,7 @@ function showOTWarning(){
     otWarning.css("visibility", "visible");
 }
 
-function searchComments(){    
+function searchComments(){
     setTimeout(function(){
         reset();
         if($(".item-container").length != 0){
@@ -90,7 +90,7 @@ function searchComments(){
                     var commentText = that.text().trim();
 
                     searchString.forEach(function(element) {
-                        if(commentText.startsWith(element) == true){
+                        if(commentText.toLowerCase().startsWith(element) == true){
                             commentBoxes.push(that);
                             showOTWarning();
                             return;
